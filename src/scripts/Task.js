@@ -19,7 +19,7 @@ class Task extends Project {
     #setNote(setNote) {
         this.#notes = setNote;
     }
-    #isDone(setBool) {
+    #setDone(setBool) {
         this.#isDone = setBool;
     }
 }

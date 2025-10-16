@@ -1,16 +1,15 @@
 import "../node_modules/modern-normalize/modern-normalize.css";
 import "./styles/reset.css";
 import "./styles/styles.css";
-import { greeting } from "./scripts/greeting.js";
-import { Items } from "./scripts/Items.js";
-import { Project } from "./scripts/Project.js";
-import { Task } from "./scripts/Task.js";
+// import { DOM } from "./scripts/DOM.js";
+import { AppController } from "./scripts/AppController.js";
 
 if (process.env.NODE_ENV !== 'production') {
    console.log('Looks like we are in development mode!');
 }
 
 localStorage.clear();
+new AppController();
 
 // const items = new Items();
 // const test = new Project();
@@ -27,10 +26,3 @@ localStorage.clear();
 // const task = new Task();
 // task.setDueDate(2020, 1, 31); // wont work because private
 // console.log(task.getDueDate());
-console.log(greeting);
-
-
-
-
-
-

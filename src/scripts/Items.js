@@ -3,7 +3,7 @@ class Items {
         this.items = [];
         this.id = crypto.randomUUID();
     }
-    _addItem(item) {
+    addItem(item) {
         this.items.push(item);
     }
     _deleteItem(id) {
