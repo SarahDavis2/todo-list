@@ -128,6 +128,10 @@ main {
   text-shadow: 1px 1px 1px var(--shadow-clr);
 }
 
+.project-header p {
+  width: 135ch;
+}
+
 .task-list {
   /* Divider Line */
   padding-bottom: 0.5rem;
