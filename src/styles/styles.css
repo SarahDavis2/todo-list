@@ -9,6 +9,8 @@
   --off-white: rgb(230, 239, 245);
   --shadow-clr: #b0c0d8;
   --rounded-corners: 20px;
+  --theme: white;
+  --dark-grey: rgb(75, 75, 75);
 }
 
 /* MAYBE ADD TO RESET?????????????????? */
@@ -22,6 +24,13 @@ body {
   flex: 1;
 }
 /* ADD TO RESET?????????? */
+
+/* ADD TO CSS RESET???? */
+svg {
+  fill: currentColor;
+  height: 1em;
+  width: auto;
+}
 
 header {
   z-index: 0;
@@ -49,11 +58,12 @@ main {
   flex: 1;
   display: flex;
   margin: 20px;
-  background-color: white;
+  background-color: var(--theme);
   border-radius: var(--rounded-corners);
   box-shadow: 4px 4px 4px var(--shadow-clr);
 }
 
+/* SIDEBAR */
 .sidebar {
   width: 304px;
   display: flex;
@@ -66,63 +76,107 @@ main {
 
 .sidebar h2 {
   text-align: center;
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
   color: var(--sidebar-clr); 
   font-size: 2rem;
   text-shadow: 1px 1px 1px var(--shadow-clr);
+
+  /* Divider Line */
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
   border-bottom: 1px solid var(--sidebar-clr);
 }
 
-.sidebar button {
+/* PROJECT LIST */
+.project-list {
+  color: var(--sidebar-clr);
+
+  /* Divider Line */
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sidebar-clr);
+}
+
+.project-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.project-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.125rem;
+}
+
+/* PROJECT */
+.project {
+  flex: 1;
+  padding: 1.5rem 3rem;
+  color: var(--dark-grey);
+}
+
+.project-header {
+  /* Divider Line */
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sidebar-clr);
+}
+
+.project-header h2 {
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 1px var(--shadow-clr);
+}
+
+.task-list {
+  /* Divider Line */
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sidebar-clr);
+}
+
+/* UI */
+.project-list li:hover {
+  background-color: var(--sidebar-light-clr);
+}
+
+/* BUTTON */
+button {
   align-self: center;
-  width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.125rem;
   padding: 0.25rem;  
   font-size: 1rem;
+  border: none;
   text-shadow: 1px 1px 1px var(--shadow-clr);
+}
+
+.sidebar button {
   color: var(--sidebar-clr);
   background-color: var(--sidebar-bg-clr);
-  border: none;
 }
 
 .sidebar button:hover * {
   color: var(--sidebar-dark-clr);
-  fill: var(--sidebar-dark-clr);
-}
-
-/* ADD TO CSS RESET???? */
-.sidebar svg {
   fill: currentColor;
-  height: 1em;
-  width: auto;
 }
 
-.project-list {
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid var(--sidebar-clr);
-  color: var(--sidebar-dark-clr);
+.sidebar li button {
+  /* Align button on edges */
+  padding: 0;
+  /* Make button background invisible for UI hover */
+  background-color: rgb(0, 0, 0, 0);
 }
 
-.project-list ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.project button {
+  color: var(--dark-grey);
+  fill: currentColor;
+  background-color: var(--theme);
 }
 
-.project-list li {
-  display: flex;
-  justify-content: space-between;
-}
-
-.project-list li:hover {
-  background-color: var(--sidebar-light-clr);
-}
-
-.project {
-  flex: 1;
+.project button:hover * {
+  color: black;
+  fill: currentColor;
 }
