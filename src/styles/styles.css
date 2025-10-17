@@ -3,7 +3,9 @@
   --header-clr: #c1d4f0;
   --bg-clr: #d5e3f0;
   --sidebar-bg-clr: #e6f0fa;
+  --sidebar-light-clr: #dcebfa;
   --sidebar-clr: #b4cbf0;
+  --sidebar-dark-clr: #7b8dac;
   --off-white: rgb(230, 239, 245);
   --shadow-clr: #b0c0d8;
   --rounded-corners: 20px;
@@ -22,18 +24,18 @@ body {
 /* ADD TO RESET?????????? */
 
 header {
+  z-index: 0;
+  height: 6.5rem;
   display: flex;
   align-items: center;
   padding: 3.5rem 2.5rem;
   background-color: var(--header-clr);
-  height: 6.5rem;
   box-shadow: 4px 4px 4px var(--shadow-clr);
-  z-index: 0;
 }
 
 header h1 {
-  font-size: 3.5rem;
   color: var(--off-white);
+  font-size: 3.5rem;
   text-shadow: 3px 3px 2px var(--shadow-clr);
 }
 
@@ -45,30 +47,80 @@ main {
 
 .board {
   flex: 1;
-  background-color: white;
+  display: flex;
   margin: 20px;
+  background-color: white;
   border-radius: var(--rounded-corners);
   box-shadow: 4px 4px 4px var(--shadow-clr);
-
-  display: flex;
 }
 
 .sidebar {
-  background-color: var(--sidebar-bg-clr);
   width: 304px;
-  border-radius: var(--rounded-corners) 0 0 var(--rounded-corners);
+  display: flex;
+  flex-direction: column;
   padding: 16px 24px;
+  background-color: var(--sidebar-bg-clr);
+  border-radius: var(--rounded-corners) 0 0 var(--rounded-corners);
   box-shadow: 4px 0 4px var(--shadow-clr);
 }
 
 .sidebar h2 {
-  font-size: 2rem;
-  text-shadow: 1px 1px 1px var(--shadow-clr);
-  color: var(--sidebar-clr); 
   text-align: center;
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
+  color: var(--sidebar-clr); 
+  font-size: 2rem;
+  text-shadow: 1px 1px 1px var(--shadow-clr);
   border-bottom: 1px solid var(--sidebar-clr);
+}
+
+.sidebar button {
+  align-self: center;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0.25rem;  
+  font-size: 1rem;
+  text-shadow: 1px 1px 1px var(--shadow-clr);
+  color: var(--sidebar-clr);
+  background-color: var(--sidebar-bg-clr);
+  border: none;
+}
+
+.sidebar button:hover * {
+  color: var(--sidebar-dark-clr);
+  fill: var(--sidebar-dark-clr);
+}
+
+/* ADD TO CSS RESET???? */
+.sidebar svg {
+  fill: currentColor;
+  height: 1em;
+  width: auto;
+}
+
+.project-list {
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sidebar-clr);
+  color: var(--sidebar-dark-clr);
+}
+
+.project-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-list li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-list li:hover {
+  background-color: var(--sidebar-light-clr);
 }
 
 .project {
