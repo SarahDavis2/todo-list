@@ -9,7 +9,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 localStorage.clear();
-new AppController();
 
 // const items = new Items();
 // const test = new Project();
