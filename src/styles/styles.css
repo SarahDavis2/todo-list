@@ -104,7 +104,7 @@ main {
 
 .project-list li {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; SOON TO BE DEPRECATED WHEN BUTTON FIXED */ 
   align-items: center;
   padding: 0.125rem;
 }
@@ -139,11 +139,6 @@ main {
   border-bottom: 1px solid var(--sidebar-clr);
 }
 
-/* UI */
-.project-list li:hover {
-  background-color: var(--sidebar-light-clr);
-}
-
 /* BUTTON */
 button {
   align-self: center;
@@ -157,6 +152,24 @@ button {
   text-shadow: 1px 1px 1px var(--shadow-clr);
 }
 
+/* SIDEBAR BUTTONS */
+.project-list li button {
+  /* Align button on edges */
+  padding: 0;
+  /* Make button background invisible for UI hover */
+  background-color: rgb(0, 0, 0, 0);
+}
+
+.project-list li button:first-child {
+  flex: 1;
+  text-shadow: none;
+}
+
+/* UI for button:hover but expands to li for style */
+.project-list li:hover {
+  background-color: var(--sidebar-light-clr);
+}
+
 .sidebar button {
   color: var(--sidebar-clr);
   background-color: var(--sidebar-bg-clr);
@@ -167,13 +180,7 @@ button {
   fill: currentColor;
 }
 
-.sidebar li button {
-  /* Align button on edges */
-  padding: 0;
-  /* Make button background invisible for UI hover */
-  background-color: rgb(0, 0, 0, 0);
-}
-
+/* PROJECT BUTTON */
 .project button {
   color: var(--dark-grey);
   fill: currentColor;
