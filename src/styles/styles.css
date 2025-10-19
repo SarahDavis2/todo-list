@@ -163,6 +163,7 @@ button {
 .project-list li button:first-child {
   flex: 1;
   text-shadow: none;
+  justify-content: start;
 }
 
 /* UI for button:hover but expands to li for style */
