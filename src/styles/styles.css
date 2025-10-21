@@ -11,6 +11,9 @@
   --rounded-corners: 20px;
   --theme: white;
   --dark-grey: rgb(75, 75, 75);
+  --light-grey: rgb(197, 197, 197);
+  --lighter-grey: rgb(245, 245, 245);
+  --task-list-corner: 1.5rem;
 }
 
 /* MAYBE ADD TO RESET?????????????????? */
@@ -104,7 +107,6 @@ main {
 
 .project-list li {
   display: flex;
-  /* justify-content: space-between; SOON TO BE DEPRECATED WHEN BUTTON FIXED */ 
   align-items: center;
   padding: 0.125rem;
 }
@@ -132,12 +134,61 @@ main {
   width: 135ch;
 }
 
+/* TASK LIST */
 .task-list {
   /* Divider Line */
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
   border-bottom: 1px solid var(--sidebar-clr);
 }
+
+.task-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-list li {
+  width: 50%; /* FIX: MAKE DYANMIC FOR LONGER TASK NAME */
+}
+
+.task-list .header {
+  position: relative;
+  flex: 1;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid var(--light-grey);
+  border-radius: var(--task-list-corner);
+  padding: 0.5rem 1rem;
+  box-shadow: 2px 2px 2px var(--light-grey);
+}
+
+.task-list .edit-expand {
+  z-index: 0;
+  position: relative;
+  top: -1.5rem;
+  padding: 2.5rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: var(--lighter-grey);
+  box-shadow: 2px 2px 4px var(--light-grey);
+  border-radius: 0 0 var(--task-list-corner) var(--task-list-corner);
+}
+
+.edit-expand > * {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-expand .notes textarea {
+  resize: vertical;
+}
+
 
 /* BUTTON */
 button {
@@ -183,6 +234,7 @@ button {
 
 /* PROJECT BUTTON */
 .project button {
+  padding: 0;
   color: var(--dark-grey);
   fill: currentColor;
   background-color: var(--theme);
@@ -191,4 +243,10 @@ button {
 .project button:hover * {
   color: black;
   fill: currentColor;
+}
+
+/* TASK BUTTON */
+.task-list button svg {
+  height: 1.125em; 
+  width: auto;
 }
