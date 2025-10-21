@@ -1,7 +1,7 @@
 import "../node_modules/modern-normalize/modern-normalize.css";
 import "./styles/reset.css";
 import "./styles/styles.css";
-// import { DOM } from "./scripts/DOM.js";
+import { DOM } from "./scripts/DOM.js";
 import { AppController } from "./scripts/AppController.js";
 
 if (process.env.NODE_ENV !== 'production') {
@@ -9,6 +9,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 localStorage.clear();
+
+new DOM();
 
 // const items = new Items();
 // const test = new Project();
