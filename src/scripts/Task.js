@@ -4,7 +4,6 @@ import { format } from "date-fns";
 class Task extends Project {
     #priority = null;
     #dueDate = null;
-    #notes = null;
     #isDone = false;
 
     constructor() {
@@ -15,9 +14,6 @@ class Task extends Project {
     }
     #setDueDate(year, month, day) {
         this.#dueDate = format(new Date(year, month, day), "yyyy-MM-dd");
-    }
-    #setNote(setNote) {
-        this.#notes = setNote;
     }
     #setDone(setBool) {
         this.#isDone = setBool;

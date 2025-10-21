@@ -6,13 +6,13 @@ class Project extends Items {
     constructor() {
         super();
         this._title = Project.#DEFAULT_TITLE;
-        this._description = null;
+        this._note = null;
     }
     _setTitle(setTitle) {
         this._title = setTitle;
     }
-    _setDescription(setDescription) {
-        this._description = setDescription;
+    _setNote(setNote) {
+        this._note = setNote;
     }
 }
 export { Project };
