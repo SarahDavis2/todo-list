@@ -17,14 +17,17 @@ class DOM {
 
         dialogBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            // CHANGE THIS TO INDEX JS??
             dialog.close();
             this.addProject();
         });
 
+        DOM.#projectList.addEventListener("click", (e) => {
+            console.log(e.target);
+        });
+
         const addTaskBtn = document.querySelector(".add-task");
         addTaskBtn.addEventListener("click", () => {
-            this.addTask(); // CHANGE THIS TO INDEX JS??
+            this.addTask();
         });
     }
     addProject() {

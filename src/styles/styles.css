@@ -201,8 +201,16 @@ main {
 
 /* DIALOG */
 dialog {
+  position: fixed;
+  z-index: 1;
   justify-self: center;
   padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+dialog form div {
+  display: flex;
+  flex-direction: column;
 }
 
 /* BUTTON */
@@ -265,3 +273,12 @@ button {
   height: 1.125em; 
   width: auto;
 }
+
+/* ADD PROJECT BUTTON */
+dialog button {
+  margin-top: 8px;
+}
+
+/* TODO
+ALIGN DIALOG
+ALIGN BUTTON TO RIGHT OF DIALOG */
