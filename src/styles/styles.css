@@ -167,6 +167,16 @@ main {
   box-shadow: 2px 2px 2px var(--light-grey);
 }
 
+.task-list .left {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task-list .checkbox {
+  display: flex;
+  gap: 0.25rem;
+}
+
 .task-list .edit-expand {
   z-index: 0;
   position: relative;
