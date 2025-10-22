@@ -27,6 +27,10 @@ module.exports = {
         loader: "html-loader",
       },
       {
+        test: /\.svg$/,
+        loader: "svg-inline-loader",
+      },
+      {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },

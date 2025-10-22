@@ -1,18 +1,43 @@
 class DOM {
-    static #showDialogBtn = document.querySelector(".show-dialog");
-    static #dialog = document.querySelector("dialog");
+    static #projectList = document.querySelector(".project-list ul");
     static #taskList = document.querySelector(".task-list ul");
     static #taskNum = 0;
 
     constructor() {
-        DOM.#showDialogBtn.addEventListener("click", () => {
-            DOM.#dialog.showModal();
+        const showDialogBtn = document.querySelector(".show-dialog");
+        const dialog = document.querySelector("dialog");
+        const dialogBtn = dialog.querySelector("button");
+        
+        // const main = document.querySelector("main");
+        // const mainBtns = main.document.querySelectorAll("button");
+
+        showDialogBtn.addEventListener("click", () => {
+            dialog.showModal();
+        });
+
+        dialogBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            // CHANGE THIS TO INDEX JS??
+            dialog.close();
+            this.addProject();
         });
 
         const addTaskBtn = document.querySelector(".add-task");
         addTaskBtn.addEventListener("click", () => {
-            this.addTask();
+            this.addTask(); // CHANGE THIS TO INDEX JS??
         });
+    }
+    addProject() {
+        const li = document.createElement("li");
+        DOM.#projectList.appendChild(li);
+
+        const projectBtn = document.createElement("button");
+        projectBtn.textContent = "Project Name";
+        li.appendChild(projectBtn);
+
+        const deleteBtn = document.createElement("button");
+        this.#addSvg(deleteBtn, `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>minus-box</title><path d="M17,13H7V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" /></svg>`);
+        li.appendChild(deleteBtn);
     }
     addTask() {
         DOM.#taskNum++;
@@ -30,7 +55,7 @@ class DOM {
     #addHeader(parentElement) {
         const header = this.#addDiv(parentElement, "header");
         this.#addLeft(header);
-        this.#addButton(header);
+        this.#addTaskButton(header);
     }
     #addLeft(parentElement) {
         const left = this.#addDiv(parentElement, "left");
@@ -59,14 +84,12 @@ class DOM {
         showDueDate.textContent = "(yyyy-mm-dd)";
         parentElement.appendChild(showDueDate);
     }
-    #addButton(parentElement) {
+    #addTaskButton(parentElement) {
         const btn = document.createElement("button");
         btn.setAttribute("type", "button");
         parentElement.appendChild(btn);
 
-        const svg = document.createElement("svg");
-        // FIX: ADD SVG
-        btn.appendChild(svg);
+        this.#addSvg(btn, `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>playlist-edit</title><path d="M3 6V8H14V6H3M3 10V12H14V10H3M20 10.1C19.9 10.1 19.7 10.2 19.6 10.3L18.6 11.3L20.7 13.4L21.7 12.4C21.9 12.2 21.9 11.8 21.7 11.6L20.4 10.3C20.3 10.2 20.2 10.1 20 10.1M18.1 11.9L12 17.9V20H14.1L20.2 13.9L18.1 11.9M3 14V16H10V14H3Z" /></svg>`);
 
         const btnName = document.createElement("p")
         btnName.textContent = "Edit/Expand";
@@ -138,6 +161,12 @@ class DOM {
 
         label.setAttribute("for", `${attributeName}${DOM.#taskNum}`);
         parentElement.appendChild(label);
+    }
+    #addSvg(parentElement, svgMarkup) {
+        // Add inline svg
+        const svgCtn = document.createElement('div');
+        svgCtn.innerHTML = svgMarkup;
+        parentElement.appendChild(svgCtn);
     }
     #createAttributeName(inputStr) {
         return inputStr.replace(" ", "-").toLowerCase();
